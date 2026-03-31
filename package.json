@@ -1,0 +1,35 @@
+{
+  "name": "scaffscript",
+  "displayName": "ScaffScript",
+  "description": "A minimal superset language of GameMaker Language (GML) for creating module-based GameMaker source codes.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "scaffscript",
+      "aliases": ["ScaffScript", "scaffscript"],
+      "extensions": [".ss"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "scaffscript",
+      "scopeName": "source.ss",
+      "path": "./syntaxes/scaffscript.tmLanguage.json"
+    }]
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0"
+  }
+}

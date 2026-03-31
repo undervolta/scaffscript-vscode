@@ -1,0 +1,174 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ScaffScript",
+	"patterns": [
+		{ "include": "#comments" },
+		{ "include": "#directives" },
+		{ "include": "#keywords" },
+		{ "include": "#strings" },
+		{ "include": "#numbers" },
+		{ "include": "#types" },
+		{ "include": "#functions" },
+		{ "include": "#variables" },
+		{ "include": "#operators" },
+		{ "include": "#brackets" }
+	],
+	"repository": {
+		"brackets": {
+			"patterns": [{
+				"name": "punctuation.section.braces.begin.scaffscript",
+				"match": "\\{"
+			}, {
+				"name": "punctuation.section.braces.end.scaffscript",
+				"match": "\\}"
+			}, {
+				"name": "punctuation.section.brackets.begin.scaffscript",
+				"match": "\\["
+			}, {
+				"name": "punctuation.section.brackets.end.scaffscript",
+				"match": "\\]"
+			}, {
+				"name": "punctuation.section.parens.begin.scaffscript",
+				"match": "\\("
+			}, {
+				"name": "punctuation.section.parens.end.scaffscript",
+				"match": "\\)"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.double-slash.scaffscript",
+				"match": "//.*$"
+			}, {
+				"name": "comment.block.scaffscript",
+				"begin": "/\\*",
+				"end": "\\*/"
+			}]
+		},
+		"directives": {
+			"patterns": [{
+				"name": "storage.type.scaffscript",
+				"match": "(?<![A-Za-z0-9_])@((content|valueof|typeof|nameof|use)|:[\\w]+)+(?![A-Za-z0-9_])"
+			}, {
+				"name": "meta.annotation.scaffscript",
+				"begin": "#\\[",
+				"beginCaptures": {
+					"0": { "name": "punctuation.definition.annotation.begin.scaffscript" }
+				},
+				"end": "\\]",
+				"endCaptures": {
+					"0": { "name": "punctuation.definition.annotation.end.scaffscript" }
+				},
+				"patterns": [{
+					"match": "([A-Za-z_][A-Za-z0-9_]*)(?::([A-Za-z_][A-Za-z0-9_]*))?\\s+\\b(?i:(event|ev))",
+					"captures": {
+						"1": { "name": "support.type.scaffscript" },
+						"2": { "name": "constant.language.scaffscript" },
+						"3": { "name": "keyword.control.scaffscript" }
+					}
+				}, {
+					"match": "\\b(as)\\s+([A-Za-z_][A-Za-z0-9_]*)(?::([A-Za-z_][A-Za-z0-9_]*))?",
+					"captures": {
+						"1": { "name": "keyword.control.scaffscript" },
+						"2": { "name": "support.type.scaffscript" },
+						"3": { "name": "constant.language.scaffscript" }
+					}
+				}, {
+					"match": "\\b([A-Za-z_][A-Za-z0-9_]*)",
+					"captures": {
+						"1": { "name": "entity.other.attribute-name.scaffscript" }
+					}
+				}, {
+					"match": "--\\s+[A-Za-z0-9_ ]+",
+					"name": "comment.line.double-dash.my-lang"
+				}]
+			}]
+		},
+		"functions": {
+			"patterns": [{
+				"name": "entity.name.function.scaffscript",
+				"match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\(|=\\s*(function\\b|\\([^)]*\\)\\s*=>|[A-Za-z_][A-Za-z0-9_]*\\s*=>))"
+			}, {
+				"name": "entity.name.class.scaffscript",
+				"match": "\\bclass\\s+([A-Za-z_][A-Za-z0-9_]*)\\b"
+			}, {
+				"name": "entity.name.type.scaffscript",
+				"match": "\\b(type|interface|enum)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.scaffscript",
+				"match": "\\b(if|else|for|while|do|break|continue|return|switch|case|default|try|catch|finally|export|import|include|throw|yield|await|async|new|delete|in|of|this|super|constructor|impl|intg|from|to|as)\\b"
+			}, {
+				"name": "storage.type.scaffscript",
+				"match": "\\b(let|const|var|function|class|interface|enum|type|extends|public|private|protected|static|readonly)\\b"
+			}, {
+				"name": "constant.language.scaffscript",
+				"match": "\\b(true|false|null|undefined|NaN|Infinity)\\b"
+			}, {
+				"name": "variable.language.scaffscript",
+				"match": "(\\b(this|self|other)\\b(?!:)|\\?|=>|@|\\$|\\*|&)"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.float.scaffscript",
+				"match": "\\b\\d+\\.\\d+\\b"
+			}, {
+				"name": "constant.numeric.integer.scaffscript",
+				"match": "\\b\\d+\\b"
+			}]
+		},
+		"operators": { 
+			"patterns": [{
+				"name": "keyword.operator.scaffscript",
+				"match": "[+\\-*/%=!<>&|^~?:.]+"
+			}]
+		},
+		"strings": {
+			"patterns": [{
+				"name": "string.quoted.double.scaffscript",
+				"begin": "\"",
+				"end": "\"",
+				"patterns": [{
+					"name": "constant.character.escape.scaffscript",
+					"match": "\\\\."
+				}]
+			}, {
+				"name": "string.quoted.single.scaffscript",
+				"begin": "'",
+				"end": "'",
+				"patterns": [{
+					"name": "constant.character.escape.scaffscript",
+					"match": "\\\\."
+				}]
+			}, {
+				"name": "string.interpolated.scaffscript",
+				"begin": "`",
+				"end": "`",
+				"patterns": [{
+					"name": "constant.character.escape.scaffscript",
+					"match": "\\\\."
+				}, {
+					"name": "meta.interpolation.scaffscript",
+					"begin": "\\$\\{",
+					"end": "\\}"
+				}]
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "support.type.scaffscript",
+				"match": "\\b(number|string|boolean|void|any|unknown|never|object|array|tuple|Record|Partial)\\b"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable.other.readwrite.scaffscript",
+				"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
+			}]
+		}
+	},
+	"scopeName": "source.ss"
+}
