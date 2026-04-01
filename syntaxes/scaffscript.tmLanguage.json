@@ -80,7 +80,7 @@
 					}
 				}, {
 					"match": "--\\s+[A-Za-z0-9_ ]+",
-					"name": "comment.line.double-dash.my-lang"
+					"name": "comment.line.double-dash.scaffscript"
 				}]
 			}]
 		},
@@ -108,7 +108,7 @@
 				"match": "\\b(true|false|null|undefined|NaN|Infinity)\\b"
 			}, {
 				"name": "variable.language.scaffscript",
-				"match": "(\\b(this|self|other)\\b(?!:)|\\?|=>|@|\\$|\\*|&)"
+				"match": "(\\b(this|self|other)\\b(?!:)|\\?|=>|\\*|&)"
 			}]
 		},
 		"numbers": {
@@ -128,6 +128,29 @@
 		},
 		"strings": {
 			"patterns": [{
+				"name": "string.quoted.template.scaffscript",
+				"begin": "\\$\"",
+				"end": "\"",
+				"patterns": [{
+					"name": "constant.character.escape.scaffscript",
+					"match": "\\\\."
+				}, {
+					"name": "meta.embedded.expression.scaffscript",
+					"begin": "\\{",
+					"end": "\\}",
+					"patterns": [{
+						"include": "$self"
+					}]
+				}]
+			}, {
+				"name": "string.quoted.other.scaffscript",
+				"begin": "@\"",
+				"end": "\"",
+				"patterns": [{
+					"name": "constant.character.escape.scaffscript",
+					"match": "\\\\."
+				}]
+			}, {
 				"name": "string.quoted.double.scaffscript",
 				"begin": "\"",
 				"end": "\"",
@@ -144,16 +167,19 @@
 					"match": "\\\\."
 				}]
 			}, {
-				"name": "string.interpolated.scaffscript",
+				"name": "string.quoted.template.scaffscript",
 				"begin": "`",
 				"end": "`",
 				"patterns": [{
 					"name": "constant.character.escape.scaffscript",
 					"match": "\\\\."
 				}, {
-					"name": "meta.interpolation.scaffscript",
+					"name": "meta.embedded.expression.scaffscript",
 					"begin": "\\$\\{",
-					"end": "\\}"
+					"end": "\\}",
+					"patterns": [{
+						"include": "$self"
+					}]
 				}]
 			}]
 		},
@@ -165,6 +191,12 @@
 		},
 		"variables": {
 			"patterns": [{
+				"name": "support.other.scaffscript",
+				"match": "\\b__[A-Za-z_][A-Za-z0-9_]*\\b"
+			}, {
+				"name": "variable.parameter.scaffscript",
+				"match": "\\b_[A-Za-z_][A-Za-z0-9_]*\\b"
+			}, {
 				"name": "variable.other.readwrite.scaffscript",
 				"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
 			}]

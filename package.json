@@ -1,11 +1,16 @@
 {
   "name": "scaffscript",
   "displayName": "ScaffScript",
-  "description": "A minimal superset language of GameMaker Language (GML) for creating module-based GameMaker source codes.",
+  "description": "ScaffScript language support",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/undervolta/scaffscript-vscode"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.110.0"
   },
+  "icon": "images/logo.png",
   "categories": [
     "Programming Languages"
   ],
