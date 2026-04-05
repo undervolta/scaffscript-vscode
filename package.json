@@ -1,11 +1,12 @@
 {
   "name": "scaffscript",
   "displayName": "ScaffScript",
-  "description": "ScaffScript language support",
+  "description": "Language support for ScaffScript, a module system for GML",
   "repository": {
     "type": "git",
     "url": "https://github.com/undervolta/scaffscript-vscode"
   },
+  "publisher": "undervolta",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.110.0"

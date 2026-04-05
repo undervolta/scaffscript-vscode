@@ -99,16 +99,16 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.scaffscript",
-				"match": "\\b(if|else|for|while|do|break|continue|return|switch|case|default|try|catch|finally|export|import|include|throw|yield|await|async|new|delete|in|of|this|super|constructor|impl|intg|from|to|as)\\b"
+				"match": "\\b(if|else|for|while|do|until|exit|break|continue|return|switch|case|default|try|catch|finally|repeat|with|begin|end|export|import|include|throw|yield|await|async|new|delete|in|of|this|super|constructor|impl|intg|from|to|as)\\b"
 			}, {
 				"name": "storage.type.scaffscript",
 				"match": "\\b(let|const|var|function|class|interface|enum|type|extends|public|private|protected|static|readonly)\\b"
 			}, {
 				"name": "constant.language.scaffscript",
-				"match": "\\b(true|false|null|undefined|NaN|Infinity)\\b"
+				"match": "\\b(true|false|null|undefined|NaN|Infinity|infinity|noone)\\b"
 			}, {
 				"name": "variable.language.scaffscript",
-				"match": "(\\b(this|self|other)\\b(?!:)|\\?|=>|\\*|&)"
+				"match": "(\\b(this|self|other|all)\\b(?!:)|\\?|=>|\\*|&)"
 			}]
 		},
 		"numbers": {
