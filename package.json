@@ -7,7 +7,7 @@
     "url": "https://github.com/undervolta/scaffscript-vscode"
   },
   "publisher": "undervolta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.110.0"
   },
@@ -16,17 +16,26 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "scaffscript",
-      "aliases": ["ScaffScript", "scaffscript"],
-      "extensions": [".ss"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "scaffscript",
-      "scopeName": "source.ss",
-      "path": "./syntaxes/scaffscript.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "scaffscript",
+        "aliases": [
+          "ScaffScript",
+          "scaffscript"
+        ],
+        "extensions": [
+          ".ss"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "scaffscript",
+        "scopeName": "source.ss",
+        "path": "./syntaxes/scaffscript.tmLanguage.json"
+      }
+    ]
   },
   "scripts": {
     "compile": "tsc -p .",
