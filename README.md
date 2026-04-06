@@ -1,4 +1,4 @@
-# ScaffScript — VS Code Extension
+# ScaffScript
 
 **ScaffScript** is a minimal **superset of GML (GameMaker Language)** that adds a TypeScript-like module system. Write organized, modular GML in `.ss` files. **ScaffScript** compiles to GML and can inject it directly into your GameMaker project.
 
@@ -60,12 +60,12 @@ Additional editor niceties:
 3. Search for **ScaffScript**.
 4. Click **Install**.
 
-<!--### From a VSIX file
+### From a VSIX file
 
 1. Download the `.vsix` file from the [Releases](https://github.com/undervolta/scaffscript-vscode/releases) page.
 2. In VS Code, open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
 3. Run **Extensions: Install from VSIX…**.
-4. Select the downloaded `.vsix` file.-->
+4. Select the downloaded `.vsix` file.
 
 
 ## Usage
