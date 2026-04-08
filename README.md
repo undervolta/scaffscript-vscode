@@ -1,6 +1,6 @@
 # ScaffScript
 
-**ScaffScript** is a minimal **superset of GML (GameMaker Language)** that adds a TypeScript-like module system. Write organized, modular GML in `.scaff` files. **ScaffScript** compiles to GML and can inject it directly into your GameMaker project.
+**ScaffScript** is a minimal **superset of GML (GameMaker Language)** that adds a TypeScript-like module system. Write organized, modular GML in `.scaff` files. **ScaffScript** compiles to GML and can inject it directly into your GameMaker project. Check out the [official documentation](https://scaffscript.lefinitas.com) for more information.
 
 This extension provides **language support for `.scaff` files** inside Visual Studio Code.
 
@@ -45,7 +45,10 @@ Full syntax highlighting for `.scaff` (ScaffScript) files, covering:
 
 ![Code Generation & Integration](images/vs-code-extension1.png)
 
+![Command Palette](images/vs-code-extension3.png)
+
 Additional editor niceties:
+- Command palette to run `scaff generate`.
 - Auto-closing pairs for `{}`, `[]`, `()`, `""`, `''`, and `` `` ``.
 - Bracket matching and surrounding pairs.
 - Smart indentation rules.

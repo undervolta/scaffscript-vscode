@@ -11,6 +11,7 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "main": "./dist/extension.js",
   "icon": "images/logo.png",
   "categories": [
     "Programming Languages"
@@ -35,7 +36,23 @@
         "scopeName": "source.scaff",
         "path": "./syntaxes/scaffscript.tmLanguage.json"
       }
-    ]
+    ],
+    "commands": [
+      {
+        "command": "scaffscript.runGenerate",
+        "title": "ScaffScript: Generate GML from this workspace",
+        "shortTitle": "Generate GML"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "scaffscript.runGenerate",
+          "when": "editorLangId == scaffscript",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "compile": "tsc -p .",
