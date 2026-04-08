@@ -1,15 +1,15 @@
 # ScaffScript
 
-**ScaffScript** is a minimal **superset of GML (GameMaker Language)** that adds a TypeScript-like module system. Write organized, modular GML in `.ss` files. **ScaffScript** compiles to GML and can inject it directly into your GameMaker project.
+**ScaffScript** is a minimal **superset of GML (GameMaker Language)** that adds a TypeScript-like module system. Write organized, modular GML in `.scaff` files. **ScaffScript** compiles to GML and can inject it directly into your GameMaker project.
 
-This extension provides **language support for `.ss` files** inside Visual Studio Code.
+This extension provides **language support for `.scaff` files** inside Visual Studio Code.
 
 > **DISCLAIMER:** ScaffScript is **not** affiliated with or endorsed by YoYo Games Ltd. GameMaker and GML are trademarks of YoYo Games Ltd. This is an independent community effort.
 
 
 ## Features
 
-Full syntax highlighting for `.ss` (ScaffScript) files, covering:
+Full syntax highlighting for `.scaff` (ScaffScript) files, covering:
 
 - **Module system keywords**
 
@@ -70,12 +70,12 @@ Additional editor niceties:
 
 ## Usage
 
-Once installed, any file with a `.ss` extension will automatically be recognized as **ScaffScript** and syntax highlighting will activate.
+Once installed, any file with a `.scaff` extension will automatically be recognized as **ScaffScript** and syntax highlighting will activate.
 
 Here's a quick taste of what ScaffScript looks like:
 
 ```ts
-// src/index.ss
+// src/index.scaff
 intg { main } to "./scripts/Libraries/MyLib"
 
 import * from "./utils"

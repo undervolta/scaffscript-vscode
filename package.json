@@ -24,7 +24,7 @@
           "scaffscript"
         ],
         "extensions": [
-          ".ss"
+          ".scaff"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -32,7 +32,7 @@
     "grammars": [
       {
         "language": "scaffscript",
-        "scopeName": "source.ss",
+        "scopeName": "source.scaff",
         "path": "./syntaxes/scaffscript.tmLanguage.json"
       }
     ]
