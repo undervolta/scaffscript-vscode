@@ -1,17 +1,14 @@
 import * as vscode from "vscode";
-import { join } from "path";
+import { join, dirname } from "path";
 import { fileExists, findPackage } from "./utils";
 import { readFile } from "fs/promises";
 // import { getScaffConfig } from "./config";
 
 
-async function resolveCLI() {
-	const root = vscode.workspace.workspaceFolders?.[0].uri.fsPath;
+async function resolveCLI(filePath: string) {
+	if (!filePath) return null;
 
-	if (!root) return null;
-
-	const bin = join(root, "node_modules", ".bin");
-
+	let current = filePath;
 	const candidates = [
 		"scaff",
 		"scaff.cmd",
@@ -19,15 +16,25 @@ async function resolveCLI() {
 		"scaff.bunx"
 	];
 
-	for (const file of candidates) {
-		const full = join(bin, file);
+	while (true) {
+		const binDir = join(current, "node_modules", ".bin");
 
-		if (await fileExists(full)) {
-			return full;
+		for (const file of candidates) {
+			const full = join(binDir, file);
+
+			if (await fileExists(full)) {
+				return full;
+			}
 		}
-	}
 
-	return null;
+		const parent = dirname(current);
+
+		if (parent === current) {
+			return null;
+		}
+
+		current = parent;
+	}
 }
 
 
@@ -35,7 +42,14 @@ export async function activate(_context: vscode.ExtensionContext) {
 	const disposable = vscode.commands.registerCommand(
 		"scaffscript.runGenerate", async () => {
 			const editor = vscode.window.activeTextEditor;
-			const cli = await resolveCLI();
+
+			if (editor?.document.languageId !== "scaffscript") {
+				vscode.window.showErrorMessage("Not a ScaffScript file");
+				return;
+			}
+
+			const filePath = editor.document.fileName.replaceAll("\\", "/").split("/").slice(0, -1).join("/");
+			const cli = await resolveCLI(filePath);
 
 			if (!cli) {
 				vscode.window.showErrorMessage("ScaffScript CLI not found. Please run `<package_manager> install` first in your terminal.");
@@ -47,13 +61,7 @@ export async function activate(_context: vscode.ExtensionContext) {
 				return;
 			}
 
-			if (editor.document.languageId !== "scaffscript") {
-				vscode.window.showErrorMessage("Not a ScaffScript file");
-				return;
-			}
-
 			// const config = await getScaffConfig();
-			const filePath = editor.document.fileName.replaceAll("\\", "/").split("/").slice(0, -1).join("/");
 			const pkgPath = await findPackage(filePath);
 			const generateScript = pkgPath 
 				? JSON.parse(
