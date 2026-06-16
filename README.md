@@ -1,8 +1,11 @@
 # ScaffScript
 
-**ScaffScript** is a minimal **superset of GML (GameMaker Language)** that adds a TypeScript-like module system. Write organized, modular GML in `.scaff` files. **ScaffScript** compiles to GML and can inject it directly into your GameMaker project. Check out the [official documentation](https://scaffscript.lefinitas.com) for more information.
+**ScaffScript** is a minimal **superset of GML (GameMaker Language)** that adds a TypeScript-like module system. Write organized, modular GML in `.scaff` files. **ScaffScript** compiles to GML and can inject it directly into your GameMaker project. Check out the [official documentation](https://scaffscript-docs.netlify.app/) for more information.
 
 This extension provides **language support for `.scaff` files** inside Visual Studio Code.
+
+> [!IMPORTANT]
+> This project is archived due to the author quitting the use of GameMaker.
 
 > **DISCLAIMER:** ScaffScript is **not** affiliated with or endorsed by YoYo Games Ltd. GameMaker and GML are trademarks of YoYo Games Ltd. This is an independent community effort.
 
@@ -92,7 +95,7 @@ export function myLib_get(key) {
 }
 ```
 
-For a full guide on the ScaffScript language itself, check out the **[official documentation](https://scaffscript.lefinitas.com)**.
+For a full guide on the ScaffScript language itself, check out the **[official documentation](https://scaffscript-docs.netlify.app/)**.
 
 
 ## Limitations
@@ -127,6 +130,6 @@ When reporting a bug, please include:
 
 ## More Info
 
-- 📖 [ScaffScript Documentation](https://scaffscript.lefinitas.com)
-- 💬 [Discord Server](https://discord.gg/pBrRGSXU96)
+- 📖 [ScaffScript Documentation](https://scaffscript-docs.netlify.app/)
+<!--- 💬 [Discord Server](https://discord.gg/pBrRGSXU96)-->
 - ⭐ [ScaffScript Core Repository](https://github.com/undervolta/scaffscript)
